@@ -1,0 +1,13 @@
+<div>Congratulations, you have templates working!</div>
+<br/>
+<div>Raw data: {{ data }}</div>
+
+<ul>
+{% for artifact in data %}
+    <li>
+        <div>id: {{ artifact.artifact_id }}</div>
+        <div>name:  {{ artifact.name }}</div>
+        <div>description: {{ artifact.description }}</div>
+    </li>
+{% endfor %}
+</ul>

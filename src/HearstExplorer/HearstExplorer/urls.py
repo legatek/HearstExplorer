@@ -8,5 +8,4 @@ urlpatterns = patterns('',
 
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('browseByImage.urls'), name='home'),
-    url(r'^browse/', include('browseByImage.urls')),
 )
