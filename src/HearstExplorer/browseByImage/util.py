@@ -32,7 +32,7 @@ class CollectionSpaceClient(object):
             result["description"] = raw_result['objdescr_s'] if 'objdescr_s' in raw_result else None
             result["artifact_id"] = raw_result['objmusno_s']
             result["geotag"] = raw_result['objfcpgeoloc_p'] if 'objfcpgeoloc_p' in raw_result else None
-            result["image_blob_id"] = raw_result['blob_ss'][0] if 'blob_ss' in raw_result else None
+            result["image_blob_id"] = raw_result['blob_ss'][0]
             results.append(result)
             print "FORMED RESULT: %s"% result
 
@@ -47,22 +47,17 @@ class CollectionSpaceClient(object):
         }
 
         response = requests.get(self.api_url, headers = self.headers, params=queryParams)
-        print response.url
-        print response.text
         return json.loads(response.text)
 
-    def fetch_related(self, geotag):
+    def fetch_related(self, artifact):
         queryParams = {
-            'q': "objname_s:*",
-            'pt': geotag,
+            'q': "objname_s:* AND blob_ss:[* TO *]",
+            'pt': artifact["geotag"],
             'd': "5", 
-            'blob_ss': "[* TO *]",
             'wt': "json",
-            'rows': '16',
+            'rows': '5',
             'indent': "on", #DEBUG
         }
         response = requests.get(self.api_url, headers = self.headers, params=queryParams)
-        print response.url
-        print response.text
         return json.loads(response.text)
   

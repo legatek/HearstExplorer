@@ -12,6 +12,23 @@ Hearst Explorer - {{ artifact.name }}
     <div class="artifactName">{{ artifact.name }}</div>
     <div class="description">{{ artifact.description }}</div>
 </div>
+
+<div class="relatedItems">
+<ul>
+{% for artifact in related_artifacts %}
+    <a href=""
+        <li class="artifact" data-id="{{ artifact.artifact_id }}">
+            <img
+                class="hero-image"
+                data-name="{{ artifact.name }}"
+                data-description="{{ artifact.description }}"
+                src="https://dev.cspace.berkeley.edu/pahma_project/imageserver/blobs/{{ artifact.image_blob_id }}/derivatives/Thumbnail/content">
+        </li>
+    </a>
+{% endfor %}
+</ul>
+</div>
+
 {% endblock %}
 
 {% block debug %}
