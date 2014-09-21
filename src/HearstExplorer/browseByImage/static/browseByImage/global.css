@@ -23,10 +23,11 @@ ul {
   float: right; }
 
 .searchField {
-  width: 200px;
+  width: 250px;
   border: none;
-  height: 20px;
-  padding-left: 10px; }
+  height: 30px;
+  padding-left: 10px;
+  font-size: 18px; }
   .searchField:focus {
     outline: none; }
 

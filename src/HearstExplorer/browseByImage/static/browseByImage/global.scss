@@ -49,10 +49,11 @@ ul {
 }
 
 .searchField {
-    width: 200px;
+    width: 250px;
     border: none;
-    height: 20px;
+    height: 30px;
     padding-left: 10px;
+    font-size: 18px;
 
     &:focus {
         outline: none;
