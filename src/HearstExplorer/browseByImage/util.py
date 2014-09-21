@@ -12,8 +12,8 @@ class CollectionSpaceClient(object):
             'app_key': app_key,
         }
         self.api_url = "https://apis-qa.berkeley.edu/hearst_museum/select"
-        self.MAX_NUM_BROWSE_ITEMS = 200 #Grab additional results to shuffle and randomize the result set
-        self.SELECT_NUM_BROWSE_ITEMS = 16
+        self.MAX_NUM_BROWSE_ITEMS = 2000 #Grab additional results to shuffle and randomize the result set
+        self.SELECT_NUM_BROWSE_ITEMS = 25
         self.MAX_NUM_RELATED_ITEMS = 50
         self.SELECT_NUM_RELATED_ITEMS = 5
 
