@@ -12,13 +12,13 @@ Hearst Explorer
     <a href="{%url 'detail' artifact.artifact_id %}">
         <li class="artifact" data-id="{{ artifact.artifact_id }}">
             <img
-                class="heroImage"
+                class="image"
                 data-name="{{ artifact.name }}"
                 data-description="{{ artifact.description }}"
                 src="https://dev.cspace.berkeley.edu/pahma_project/imageserver/blobs/{{ artifact.image_blob_id }}/derivatives/Medium/content">
         </li>
     </a>
-    
+
 {% endfor %}
 </ul>
 {% endblock %}
