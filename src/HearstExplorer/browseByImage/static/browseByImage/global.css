@@ -30,7 +30,7 @@ ul {
     outline: none; }
 
 .searchLabel {
-  visibility: none; }
+  visibility: hidden; }
 
 .browsePage .artifact {
   margin-right: 20px;
