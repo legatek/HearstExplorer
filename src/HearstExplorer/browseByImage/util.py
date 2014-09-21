@@ -70,7 +70,7 @@ class CollectionSpaceClient(object):
             'q': "objname_s:* AND blob_ss:[* TO *]",
             'sfield': "objfcpgeoloc_p",
             'pt': artifact["geotag"],
-            'd': "10",
+            'd': "100",
             'sort': "geodist()asc",
             'wt': "json",
             'rows': self.MAX_NUM_RELATED_ITEMS,

@@ -2,7 +2,8 @@ h1 {
   text-align: center; }
 
 body {
-  background-color: #666; }
+  background-color: #666;
+  padding: 0 20px; }
 
 .debug {
   background-color: darkred;
@@ -12,6 +13,10 @@ body {
 a {
   text-decoration: none; }
 
+/* Reset default ul padding */
+ul {
+  padding-left: 0; }
+
 .browsePage .artifact {
   margin-right: 20px;
   list-style-type: none;
@@ -20,26 +25,35 @@ a {
     max-width: 250px;
     max-height: 250px;
     border: 1px solid #666;
-    transition: all 0.25s ease-in-out; }
+    transition: all 0.25s ease-in-out;
+    margin-bottom: 20px; }
     .browsePage .artifact .image:hover {
       border: 1px solid #fff;
       transition: all 0.5s ease-in-out; }
 
-.detailPage .artifactName {
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: capitalize; }
-.detailPage .artifact {
-  margin-right: 20px;
-  list-style-type: none;
-  display: inline; }
-  .detailPage .artifact .image {
-    max-width: 100px;
-    max-height: 100px;
-    border: 1px solid #666;
-    transition: all 0.25s ease-in-out; }
-    .detailPage .artifact .image:hover {
-      border: 1px solid #fff;
-      transition: all 0.5s ease-in-out; }
+.detailPage {
+  text-align: center; }
+  .detailPage .artifactName {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: left; }
+  .detailPage .description {
+    text-align: left; }
+  .detailPage .artifact {
+    margin-right: 20px;
+    list-style-type: none;
+    display: inline; }
+    .detailPage .artifact .image {
+      max-width: 100px;
+      max-height: 100px;
+      border: 1px solid #666;
+      transition: all 0.25s ease-in-out;
+      margin-bottom: 20px; }
+      .detailPage .artifact .image:hover {
+        border: 1px solid #fff;
+        transition: all 0.5s ease-in-out; }
+  .detailPage .relatedItemTitle {
+    text-align: left; }
 
 /*# sourceMappingURL=global.css.map */

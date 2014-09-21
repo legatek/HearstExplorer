@@ -17,8 +17,8 @@ Hearst Explorer - {{ artifact.name }}
 </div>
 
 <div class="relatedItems">
+<h3 class="relatedItemTitle">Related artifacts</h3>
 <ul>
-
 {% for artifact in related_artifacts %}
     <a href="{%url 'detail' artifact.artifact_id %}">
         <li class="artifact" data-id="{{ artifact.artifact_id }}">
