@@ -29,6 +29,9 @@ ul {
   .searchField:focus {
     outline: none; }
 
+.searchLabel {
+  visibility: none; }
+
 .browsePage .artifact {
   margin-right: 20px;
   list-style-type: none;
