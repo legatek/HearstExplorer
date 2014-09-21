@@ -17,7 +17,7 @@ Hearst Explorer - {{ artifact.name }}
 <ul>
 
 {% for artifact in related_artifacts %}
-    <a href=""
+    <a href="{%url 'detail' artifact.artifact_id %}">
         <li class="artifact" data-id="{{ artifact.artifact_id }}">
             <img
                 class="hero-image"
