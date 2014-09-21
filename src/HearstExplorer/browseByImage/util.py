@@ -24,6 +24,7 @@ class CollectionSpaceClient(object):
 
     def parse(self, json_data):
         raw_results = json_data['response']['docs']
+        print "PARSE CALL: %s"% raw_results
         results = []
         for raw_result in raw_results:
             result = {}
@@ -33,6 +34,7 @@ class CollectionSpaceClient(object):
             result["geotag"] = raw_result['objfcpgeoloc_p'] if 'objfcpgeoloc_p' in raw_result else None
             result["image_blob_id"] = raw_result['blob_ss'][0] if 'blob_ss' in raw_result else None
             results.append(result)
+            print "FORMED RESULT: %s"% result
 
         return results
 
@@ -48,3 +50,19 @@ class CollectionSpaceClient(object):
         print response.url
         print response.text
         return json.loads(response.text)
+
+    def fetch_related(self, geotag):
+        queryParams = {
+            'q': "objname_s:*",
+            'pt': geotag,
+            'd': "5", 
+            'blob_ss': "[* TO *]",
+            'wt': "json",
+            'rows': '16',
+            'indent': "on", #DEBUG
+        }
+        response = requests.get(self.api_url, headers = self.headers, params=queryParams)
+        print response.url
+        print response.text
+        return json.loads(response.text)
+  

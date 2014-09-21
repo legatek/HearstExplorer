@@ -28,8 +28,8 @@ def detail(request, artifact_id):
     artifacts = client.parse(json_data)
 
     template = loader.get_template('browseByImage/detail.html')
+    related_artifacts=client.fetch_related(artifacts[0]["geotag"])
     context = RequestContext(request, {
-        'name': "Robert",
         'artifact': artifacts[0]
     })
     return HttpResponse(template.render(context))
