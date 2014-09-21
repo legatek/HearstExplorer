@@ -17,12 +17,15 @@ class CollectionSpaceClient(object):
         self.MAX_NUM_RELATED_ITEMS = 50
         self.SELECT_NUM_RELATED_ITEMS = 5
 
-    def fetch(self, **params):
+    def fetch(self, keyword=None, **params):
         queryParams = {
             'q': "objname_s:* AND objfcpgeoloc_p:[-90,-180 TO 90,180] AND blob_ss:[* TO *]",
             'wt': "json",
             'rows': self.MAX_NUM_BROWSE_ITEMS,
         }
+
+        if (keyword != None):
+            queryParams['q'] = "objname_s:* AND objfcpgeoloc_p:[-90,-180 TO 90,180] AND blob_ss:[* TO *] and text:%s" % keyword,
 
         response = requests.get(self.api_url, headers = self.headers, params=queryParams)
         if (self.debug):

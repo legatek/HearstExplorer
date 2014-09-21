@@ -14,7 +14,6 @@ def browse(request):
 
     template = loader.get_template('browseByImage/browse.html')
     context = RequestContext(request, {
-        'name': "Robert",
         'data': artifacts
     })
     return HttpResponse(template.render(context))
@@ -32,5 +31,20 @@ def detail(request, artifact_id):
     context = RequestContext(request, {
         'artifact': artifacts[0],
         'related_artifacts': related_artifacts
+    })
+    return HttpResponse(template.render(context))
+
+def refinedBrowse(request, keyword):
+    client = CollectionSpaceClient(
+        app_id='50090494',
+        app_key='2080f7ee22be1e55783f8f9d8b631f82'
+    )
+    json_data = client.fetch(keyword=keyword)
+    artifacts = client.parse(json_data)
+
+    template = loader.get_template('browseByImage/refinedBrowse.html')
+    context = RequestContext(request, {
+        'data': artifacts,
+        'keyword': keyword
     })
     return HttpResponse(template.render(context))

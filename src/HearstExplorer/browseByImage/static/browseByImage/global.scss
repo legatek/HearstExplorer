@@ -69,10 +69,12 @@ ul {
     float: left;
 }
 
-.browsePage {
-    .backContainer {
-        display: none;
-    }
+/* Suppress the back button on the default browse page */
+.browsePage .backContainer {
+    display: none;
+}
+
+.browsePage, .refinedBrowsePage {
     .artifact {
         margin-right: 20px;
         list-style-type: none;

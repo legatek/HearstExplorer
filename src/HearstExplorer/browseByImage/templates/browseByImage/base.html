@@ -18,14 +18,14 @@
 
         <label for="searchField" class="searchLabel">Search by museum number"</label>
         <form id="search">
-            <input type="text" class="searchField" id="searchField" name="searchField" placeholder="Enter a museum # to view artifact"/>
+            <input type="text" class="searchField" id="searchField" name="searchField" placeholder="Search with a keyword..."/>
         </form>
     </div>
 
     <script type="text/javascript">
         fakeSubmit = function(event) {
             var searchValue = document.getElementById('searchField').value;
-            window.location = "/hackthehearst/" + searchValue;
+            window.location = "/hackthehearst/browse/" + searchValue;
             event.preventDefault();
             event.stopPropagation();
         }
