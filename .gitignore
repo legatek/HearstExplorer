@@ -12,3 +12,4 @@ lib
 lib64
 .sass-cache
 *.css.map
+venv

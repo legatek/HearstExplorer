@@ -1,0 +1,1 @@
+web: gunicorn HearstExplorer.wsgi --log-file -
