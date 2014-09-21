@@ -16,6 +16,7 @@ $hover-border-color: #fff;
 
 h1 {
     text-align: center;
+    margin-bottom: 0;
 }
 
 body {
@@ -36,6 +37,21 @@ a {
 /* Reset default ul padding */
 ul {
     padding-left: 0
+}
+
+#search {
+    text-align: right;
+}
+
+.searchField {
+    width: 200px;
+    border: none;
+    height: 20px;
+    padding-left: 10px;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .browsePage {
@@ -62,6 +78,10 @@ ul {
 
     .description {
         text-align: left;
+    }
+
+    .heroImage {
+        margin-top: 20px;
     }
 
     .artifact {
