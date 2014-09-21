@@ -2,7 +2,9 @@ import json
 import requests
 
 class CollectionSpaceClient(object):
+
     def __init__(self, app_id, app_key):
+        self.debug = True;
         self.app_id, self.app_key = app_id, app_key
         self.headers = {
             'app_id': app_id,
@@ -15,16 +17,15 @@ class CollectionSpaceClient(object):
             'q': "objname_s:* AND objfcpgeoloc_p:[-90,-180 TO 90,180] AND blob_ss:[* TO *]",
             'wt': "json",
             'rows': '16',
-            'indent': "on", #DEBUG
         }
 
         response = requests.get(self.api_url, headers = self.headers, params=queryParams)
-        print response.text
+        if (self.debug):
+            print "fetch URL: %s\n\n" % (response.url)
         return json.loads(response.text)
 
     def parse(self, json_data):
         raw_results = json_data['response']['docs']
-        print "PARSE CALL: %s"% raw_results
         results = []
         for raw_result in raw_results:
             result = {}
@@ -34,7 +35,8 @@ class CollectionSpaceClient(object):
             result["geotag"] = raw_result['objfcpgeoloc_p'] if 'objfcpgeoloc_p' in raw_result else None
             result["image_blob_id"] = raw_result['blob_ss'][0]
             results.append(result)
-            print "FORMED RESULT: %s"% result
+            if (self.debug):
+                print "Raw result: %s\nParsed response: %s\n"% (raw_result, result)
 
         return results
 
@@ -43,21 +45,24 @@ class CollectionSpaceClient(object):
             'q': "objmusno_s:%s" % artifact_id,
             'wt': "json",
             'rows': '1',
-            'indent': "on", #DEBUG
         }
 
         response = requests.get(self.api_url, headers = self.headers, params=queryParams)
+        if (self.debug):
+            print "fetch_artifact URL: %s\n\n" % (response.url)
         return json.loads(response.text)
 
     def fetch_related(self, artifact):
         queryParams = {
             'q': "objname_s:* AND blob_ss:[* TO *]",
             'pt': artifact["geotag"],
-            'd': "5", 
+            'd': "5",
             'wt': "json",
             'rows': '5',
             'indent': "on", #DEBUG
         }
         response = requests.get(self.api_url, headers = self.headers, params=queryParams)
+        if (self.debug):
+            print "fetch_related URL: %s\n\n" % (response.url)
         return json.loads(response.text)
-  
+

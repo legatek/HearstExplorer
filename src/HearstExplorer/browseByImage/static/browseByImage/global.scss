@@ -12,13 +12,17 @@ body {
     display: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .browsePage {
     .artifact {
         margin-right: 20px;
         list-style-type: none;
         display: inline;
 
-        .hero-image {
+        .heroImage {
             $max-dimension: 250px;
             max-width: $max-dimension;
             max-height: $max-dimension;
