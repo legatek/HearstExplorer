@@ -47,7 +47,9 @@ ul {
       transition: all 0.5s ease-in-out; }
 
 .detailPage {
-  text-align: center; }
+  text-align: center;
+  max-width: 720px;
+  margin: auto; }
   .detailPage .artifactName {
     font-size: 2rem;
     font-weight: 600;

@@ -72,6 +72,8 @@ ul {
 
 .detailPage {
     text-align: center;
+    max-width: 720px;
+    margin: auto;
 
     .artifactName {
         font-size: 2rem;
