@@ -32,7 +32,7 @@ class CollectionSpaceClient(object):
             result["name"] = raw_result['objname_s'] if 'objname_s' in raw_result else None
             result["description"] = raw_result['objdescr_s'] if 'objdescr_s' in raw_result else None
             result["artifact_id"] = raw_result['objmusno_s']
-            result["geotag"] = raw_result['objfcpgeoloc_p'] if 'objfcpgeoloc_p' in raw_result else None
+            result["geotag"] = raw_result['objfcpgeoloc_p']
             result["image_blob_id"] = raw_result['blob_ss'][0]
             results.append(result)
             if (self.debug):
@@ -55,8 +55,10 @@ class CollectionSpaceClient(object):
     def fetch_related(self, artifact):
         queryParams = {
             'q': "objname_s:* AND blob_ss:[* TO *]",
+            'sfield': "objfcpgeoloc_p",
             'pt': artifact["geotag"],
-            'd': "5",
+            'd': "10",
+            'sort': "geodist()asc",
             'wt': "json",
             'rows': '5',
             'indent': "on", #DEBUG
