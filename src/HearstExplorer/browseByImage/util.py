@@ -12,7 +12,7 @@ class CollectionSpaceClient(object):
 
     def fetch(self, **params):
         queryParams = {
-            'q': "objname_s:* AND blob_ss:[* TO *]",
+            'q': "objname_s:* AND objfcpgeoloc_p:[-90,-180 TO 90,180] AND blob_ss:[* TO *]",
             'wt': "json",
             'rows': '16',
             'indent': "on", #DEBUG
@@ -30,6 +30,7 @@ class CollectionSpaceClient(object):
             result["name"] = raw_result['objname_s'] if 'objname_s' in raw_result else None
             result["description"] = raw_result['objdescr_s'] if 'objdescr_s' in raw_result else None
             result["artifact_id"] = raw_result['objmusno_s']
+            result["geotag"] = raw_result['objfcpgeoloc_p'] if 'objfcpgeoloc_p' in raw_result else None
             result["image_blob_id"] = raw_result['blob_ss'][0] if 'blob_ss' in raw_result else None
             results.append(result)
 
