@@ -1,7 +1,11 @@
 {% extends "browseByImage/base.html" %}
 
 {% block title %}
-Hearst Explorer - Search by {{ keyword }}
+Hearst Explorer - Search for '{{ keyword }}'
+{% endblock %}
+
+{% block bodyTitle %}
+Hearst Explorer - Search for '{{ keyword }}'
 {% endblock %}
 
 {% block content-class %}refinedBrowsePage{% endblock %}
