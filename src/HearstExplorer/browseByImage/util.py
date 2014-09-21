@@ -29,8 +29,21 @@ class CollectionSpaceClient(object):
             result = {}
             result["name"] = raw_result['objname_s'] if 'objname_s' in raw_result else None
             result["description"] = raw_result['objdescr_s'] if 'objdescr_s' in raw_result else None
-            result["artifact_id"] = raw_result['id']
+            result["artifact_id"] = raw_result['objmusno_s']
             result["image_blob_id"] = raw_result['blob_ss'][0] if 'blob_ss' in raw_result else None
             results.append(result)
 
         return results
+
+    def fetch_artifact(self, artifact_id):
+        queryParams = {
+            'q': "objmusno_s:%s" % artifact_id,
+            'wt': "json",
+            'rows': '1',
+            'indent': "on", #DEBUG
+        }
+
+        response = requests.get(self.api_url, headers = self.headers, params=queryParams)
+        print response.url
+        print response.text
+        return json.loads(response.text)
