@@ -13,10 +13,14 @@
     </header>
 
     <div id="content" class="{% block content-class%}{% endblock %}">
-    <label for="searchField" class="searchLabel">Search by museum number"</label>
-    <form id="search">
-        <input type="text" class="searchField" id="searchField" name="searchField" placeholder="Enter a museum # to view artifact"/>
-    </form>
+    <div class="topArea">
+        <a href="{%url 'browse' %}" class="backContainer"><span class="backArrow">&#x25C0</span><span>Back to Browse</span></a>
+
+        <label for="searchField" class="searchLabel">Search by museum number"</label>
+        <form id="search">
+            <input type="text" class="searchField" id="searchField" name="searchField" placeholder="Enter a museum # to view artifact"/>
+        </form>
+    </div>
 
     <script type="text/javascript">
         fakeSubmit = function(event) {

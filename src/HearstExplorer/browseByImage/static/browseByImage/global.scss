@@ -44,7 +44,8 @@ ul {
 }
 
 #search {
-    text-align: right;
+    display: inline-block;
+    float: right;
 }
 
 .searchField {
@@ -62,7 +63,16 @@ ul {
     visibility: hidden;
 }
 
+.backContainer {
+    display: inline-block;
+    color: #333;
+    float: left;
+}
+
 .browsePage {
+    .backContainer {
+        display: none;
+    }
     .artifact {
         margin-right: 20px;
         list-style-type: none;
@@ -107,5 +117,11 @@ ul {
     .relatedItemTitle {
         text-align: left;
     }
+}
 
+@media (max-width: 900px) {
+    background-color: blue;
+    h1 {
+        font-size: 70px;
+    }
 }
