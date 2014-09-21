@@ -9,14 +9,15 @@ Hearst Explorer
 {% block content %}
 <ul>
 {% for artifact in data %}
-    <li>
-        <div>id: {{ artifact.artifact_id }}</div>
-        <div class="artifact-name">name:  {{ artifact.name }}</div>
-        <div class="description">description: {{ artifact.description }}</div>
-        <div>image_blob_id: {{ artifact.image_blob_id }}</div>
-        <div>geotag: {{ artifact.geotag }}</div>
-        <img class="hero-image" src="https://dev.cspace.berkeley.edu/pahma_project/imageserver/blobs/{{ artifact.image_blob_id }}/derivatives/Thumbnail/content">
-    </li>
+    <a href=""
+        <li class="artifact" data-id="{{ artifact.artifact_id }}">
+            <img
+                class="hero-image"
+                data-name="{{ artifact.name }}"
+                data-description="{{ artifact.description }}"
+                src="https://dev.cspace.berkeley.edu/pahma_project/imageserver/blobs/{{ artifact.image_blob_id }}/derivatives/Medium/content">
+        </li>
+    </a>
 {% endfor %}
 </ul>
 {% endblock %}
