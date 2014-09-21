@@ -67,7 +67,7 @@ class CollectionSpaceClient(object):
 
     def fetch_related(self, artifact):
         queryParams = {
-            'q': "objname_s:* AND blob_ss:[* TO *]",
+            'q': "objname_s:* AND objfcpgeoloc_p:[-90,-180 TO 90,180] AND blob_ss:[* TO *]",
             'sfield': "objfcpgeoloc_p",
             'pt': artifact["geotag"],
             'd': "100",
