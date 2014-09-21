@@ -1,0 +1,17 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'browseByImage/global.css' %}" />
+    <title>{% block title %}Hearst Explorer{% endblock %}</title>
+</head>
+
+<body>
+    <div id="content" class="{% block content-class%}{% endblock %}">
+        {% block content %}{% endblock %}
+    </div>
+
+    {%block debug %}{%endblock%}
+</body>
+</html>
