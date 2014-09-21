@@ -39,11 +39,11 @@ ul {
   .browsePage .artifact .image {
     max-width: 250px;
     max-height: 250px;
-    border: 1px solid #666;
-    transition: all 0.25s ease-in-out;
+    border: 2px solid #666;
+    transition: all 0.15s ease-in-out;
     margin-bottom: 20px; }
     .browsePage .artifact .image:hover {
-      border: 1px solid #fff;
+      border: 2px solid #fff;
       transition: all 0.5s ease-in-out; }
 
 .detailPage {
@@ -66,11 +66,11 @@ ul {
     .detailPage .artifact .image {
       max-width: 100px;
       max-height: 100px;
-      border: 1px solid #666;
-      transition: all 0.25s ease-in-out;
+      border: 2px solid #666;
+      transition: all 0.15s ease-in-out;
       margin-bottom: 20px; }
       .detailPage .artifact .image:hover {
-        border: 1px solid #fff;
+        border: 2px solid #fff;
         transition: all 0.5s ease-in-out; }
   .detailPage .relatedItemTitle {
     text-align: left; }
