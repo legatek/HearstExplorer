@@ -8,6 +8,8 @@
         <div>id: {{ artifact.artifact_id }}</div>
         <div>name:  {{ artifact.name }}</div>
         <div>description: {{ artifact.description }}</div>
+        <div>image_blob_id: {{ artifact.image_blob_id }}</div>
+        <img src="https://dev.cspace.berkeley.edu/pahma_project/imageserver/blobs/{{ artifact.image_blob_id }}/derivatives/Thumbnail/content">
     </li>
 {% endfor %}
 </ul>
