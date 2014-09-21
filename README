@@ -5,4 +5,4 @@ Team: The Hui Clan
 Project name: Hearst Explorer
 
 Summary
-An easy-to-use explorer to look at a subset of results from the Hearst collection based on geospatial coordinates and/or a time range.
+An easy-to-use explorer to look at a subset of results from the Hearst collection. Detailed information about an artifact also includes other artifacts based on distance to the artifact.
