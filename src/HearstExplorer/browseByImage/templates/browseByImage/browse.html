@@ -1,15 +1,25 @@
-<div>Congratulations, you have templates working!</div>
-<br/>
-<div>Raw data: {{ data }}</div>
+{% extends "browseByImage/base.html" %}
 
+{% block title %}
+Hearst Explorer
+{% endblock %}
+
+{% block content-class %}browsePage{% endblock %}
+
+{% block content %}
 <ul>
 {% for artifact in data %}
     <li>
         <div>id: {{ artifact.artifact_id }}</div>
-        <div>name:  {{ artifact.name }}</div>
-        <div>description: {{ artifact.description }}</div>
+        <div class="artifact-name">name:  {{ artifact.name }}</div>
+        <div class="description">description: {{ artifact.description }}</div>
         <div>image_blob_id: {{ artifact.image_blob_id }}</div>
-        <img src="https://dev.cspace.berkeley.edu/pahma_project/imageserver/blobs/{{ artifact.image_blob_id }}/derivatives/Thumbnail/content">
+        <img class="hero-image" src="https://dev.cspace.berkeley.edu/pahma_project/imageserver/blobs/{{ artifact.image_blob_id }}/derivatives/Thumbnail/content">
     </li>
 {% endfor %}
 </ul>
+{% endblock %}
+
+{% block debug %}
+<div class="debug">Model JSON: {{ data }}</div>
+{% endblock %}
